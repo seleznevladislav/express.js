@@ -1,0 +1,38 @@
+body{
+	max-width: 80%;
+	margin: 0 auto;
+	font-size: 20px;
+}
+.top{
+
+}
+.form{
+	display: flex;	
+}
+.second{
+	padding-left: 25px;
+	padding-right: 50px;
+}
+button{
+	padding: 6px 12px ;
+	color: white;
+	background-color: #3173d7;
+	border-radius: 5px;
+	border-color: #3173d7;
+}
+input{
+	font-size: 20px;
+}
+.middle{
+	margin-top: 50px;
+	padding: 0px 0px 20px 20px;
+	border: 1px solid black;	
+	border-radius: 7px;
+}
+.delete{
+	background-color: #D92E3E;
+	border-color: #D92E3E;
+}
+.blocked{
+	display: none;
+}
