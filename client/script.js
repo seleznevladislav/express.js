@@ -41,12 +41,12 @@ async function buttonFunc(event){
 		const newInfo = await request('/api/contacts', 'POST', json);
 		
 		information.push(newInfo);
-
-		console.log(information)
+		console.log('Получена')
+		console.log(newInfo)
 
 		
 
-		showContent(json);
+		showContent(newInfo);
 
 		
 		nameIn.value = '';
@@ -70,7 +70,7 @@ const showContent = function(json) {
 
 }
 changeStyle = function(number){
-
+	
 	let marked = document.querySelectorAll('.marked')
 	let name = document.querySelectorAll('.name')
 	marked[number].disabled = 'true'
@@ -80,7 +80,7 @@ changeStyle = function(number){
 
 }
 deleteBlocks = function(number){
-
+	removeInfo(information[number-1].id)
 	let blocks = document.querySelectorAll('.information');
 	blocks[number-1].style.display = 'none';
 	information.splice(number-i,1);
@@ -89,16 +89,28 @@ deleteBlocks = function(number){
 form();
 
 async function mounted(){
+	let count = 0;
 	const data = await request('/api/contacts');
 	if (data.length > 0)
 	{
 		information = data;
-		showContent(information[0]);	
+		while (count < data.length)
+		{
+			showContent(information[count])
+			console.log(count)
+			count++;
+		}
+	
 		del.style.display = 'none';
 	}
 	
 }
-
+async function removeInfo(id)
+{
+	await request(`/api/contacts/${id}`, 'DELETE')
+	information = information.filter(c => c.id !== id)
+	console.log(information)
+}
 
 async function request(url , method='GET', data=null) {
 	try {
