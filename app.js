@@ -5,7 +5,7 @@ const {v4} = require('uuid');
 const PORT = 3000;
 
 let INFORMATION = [ 
- {name: 'Vladislav',	value: '+7 (950) 469-96-01',	id: v4()}
+ {name: 'Vladislav',	value: '+7 (950) 469-96-01',	id: v4(), marked:false}
 	];
 
 app.use(express.static(path.resolve(__dirname, 'client')));
@@ -29,6 +29,7 @@ app.delete('/api/contacts/:id', (req, res)=>{
 
 app.get('/', (req, res)=>{
 	res.sendFile(path.resolve(__dirname, 'client', 'index.html'))
+	
 })
 
 app.listen(PORT, ()=>{

@@ -34,7 +34,8 @@ async function buttonFunc(event){
 		json = {
 			name: nameIn.value,
 			value: valueIn.value,
-			id: counter
+			id: counter,
+			marked: false
 		}
 		
 
@@ -77,6 +78,7 @@ changeStyle = function(number){
 	marked[number].style.backgroundColor = 'rgba(49,115,215, .7)';
 	marked[number].style.borderColor = 'white';
 	name[number].style.color = 'red';
+
 
 }
 deleteBlocks = function(number){
